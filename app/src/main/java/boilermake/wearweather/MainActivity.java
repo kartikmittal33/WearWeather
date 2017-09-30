@@ -100,25 +100,25 @@ public class MainActivity extends AppCompatActivity {
         switch (day) {
             case Calendar.SUNDAY:
                 currentDay.setText("Sunday");
-
+                break;
             case Calendar.MONDAY:
                 currentDay.setText("Monday");
-
+                break;
             case Calendar.TUESDAY:
                 currentDay.setText("Tuesday");
-
+                break;
             case Calendar.THURSDAY:
                 currentDay.setText("Thrusday");
-
+                break;
             case Calendar.WEDNESDAY:
                 currentDay.setText("Wednesday");
-
+                break;
             case Calendar.FRIDAY:
                 currentDay.setText("Friday");
-
+                break;
             case Calendar.SATURDAY:
                 currentDay.setText("Saturday");
-
+                break;
         }
 
 

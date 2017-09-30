@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">WeatherWear</string>
     <string name="tempUnits">°F</string>
     <string name="temp">60</string>
     <string name="weatherType">Cloudy</string>
@@ -21,8 +21,8 @@
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
     <string name="pref_description_social_recommendations">Recommendations for people to contact
-       based on your message history
-   </string>
+        based on your message history
+    </string>
 
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">John Smith</string>
@@ -89,4 +89,10 @@
     <string name="weatherForecast">Today\'s Weather</string>
     <string name="tempHigh">70</string>
     <string name="tempLow">50</string>
+    <string name="currentTime">12:00</string>
+    <string name="currentTime6">6:00</string>
+    <string name="currentTime9">9:00</string>
+    <string name="currentTime12" >12:00</string>
+    <string name="currentTime15" >15:00</string>
+    <string name="am_pm">A.M.</string>
 </resources>
