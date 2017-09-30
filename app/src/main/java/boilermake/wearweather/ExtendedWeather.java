@@ -42,6 +42,15 @@ public class ExtendedWeather extends AppCompatActivity {
     static TextView seventhTemp;
     static TextView eightTemp;
 
+    static TextView time1;
+    static TextView time2;
+    static TextView time3;
+    static TextView time4;
+    static TextView time5;
+    static TextView time6;
+    static TextView time7;
+    static TextView time8;
+
 
 
 
@@ -54,12 +63,21 @@ public class ExtendedWeather extends AppCompatActivity {
 
         firstTemp = (TextView) findViewById(R.id.temp1);
         secondTemp = (TextView) findViewById(R.id.temp2);
-        thirdTemp = (TextView) findViewById(R.id.time3);
+        thirdTemp = (TextView) findViewById(R.id.temp3);
         fourthTemp = (TextView) findViewById(R.id.temp4);
         fifthTemp = (TextView) findViewById(R.id.temp5);
         sixthTemp = (TextView) findViewById(R.id.temp6);
         seventhTemp = (TextView) findViewById(R.id.temp7);
         eightTemp = (TextView) findViewById(R.id.temp8);
+
+        time1 = (TextView) findViewById(R.id.time1);
+        time2 = (TextView) findViewById(R.id.time2);
+        time3 = (TextView) findViewById(R.id.time3);
+        time4 = (TextView) findViewById(R.id.time4);
+        time5 = (TextView) findViewById(R.id.time5);
+        time6 = (TextView) findViewById(R.id.time6);
+        time7 = (TextView) findViewById(R.id.time7);
+        time8 = (TextView) findViewById(R.id.time8);
 
 
 
@@ -141,6 +159,7 @@ public class ExtendedWeather extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray list = jsonObject.getJSONArray("list");
                 ArrayList<String> temperature = new ArrayList<String>();
+                ArrayList<String> time = new ArrayList<String >();
                 int count = 3;
                 int i = 1;
 
@@ -148,6 +167,7 @@ public class ExtendedWeather extends AppCompatActivity {
 
                     JSONObject x = list.getJSONObject(i);
                     String dt_txt = x.getString("dt_txt");
+                    time.add(dt_txt);
                     JSONObject main = x.getJSONObject("main");
                     double temp = (main.getDouble("temp"));
                     apiText = Double.toString(temp);
@@ -167,6 +187,17 @@ public class ExtendedWeather extends AppCompatActivity {
                 sixthTemp.setText(temperature.get(5));
                 seventhTemp.setText(temperature.get(6));
                 eightTemp.setText(temperature.get(7));
+
+                time1.setText(time.get(0));
+                time2.setText(time.get(1));
+                time3.setText(time.get(2));
+                time4.setText(time.get(3));
+                time5.setText(time.get(4));
+                time6.setText(time.get(5));
+                time7.setText(time.get(6));
+                time8.setText(time.get(7));
+
+
 
 
 

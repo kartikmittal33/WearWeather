@@ -47,10 +47,10 @@
         android:layout_height="wrap_content"
         android:text="Humidity"
         android:textSize="25dp"
-        android:layout_below="@+id/feelsLikeTempValue"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_marginTop="59dp" />
+        android:layout_above="@+id/extendWeather"
+        android:layout_toRightOf="@+id/unitFeelsTemp"
+        android:layout_toEndOf="@+id/unitFeelsTemp"
+        android:layout_marginBottom="100dp" />
 
     <TextView
         android:id="@+id/humidityValueTextView"
@@ -68,14 +68,14 @@
         android:id="@+id/windTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Wind"
+        android:textSize="25dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
         android:layout_alignBaseline="@+id/humidityTextView"
         android:layout_alignBottom="@+id/humidityTextView"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView"
-        android:text="Wind"
-        android:textSize="25dp" />
+        android:layout_toLeftOf="@+id/currentDay"
+        android:layout_toStartOf="@+id/currentDay" />
 
     <TextView
         android:id="@+id/windValueTextView"
@@ -93,36 +93,33 @@
         android:id="@+id/feelsLikeTempValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/loTemp"
-        android:layout_toRightOf="@+id/loTemp"
         android:text="@string/feelsLikeTemp"
-        android:textSize="40dp"
+        android:textSize="60dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="239dp" />
+        tools:layout_editor_absoluteY="239dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:srcCompat="@mipmap/ic_launcher"
-        android:layout_marginTop="21dp"
         android:layout_below="@+id/currentDay"
-        android:layout_alignLeft="@+id/currentDay"
-        android:layout_alignStart="@+id/currentDay"
-        android:layout_alignRight="@+id/currentDay"
-        android:layout_alignEnd="@+id/currentDay" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/hiTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/humidityTextView"
-        android:layout_alignStart="@+id/humidityTextView"
-        android:layout_alignTop="@+id/imageView"
         android:text="70"
-        android:textSize="35dp" />
+        android:textSize="35dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignRight="@+id/humidityTextView"
+        android:layout_alignEnd="@+id/humidityTextView"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
 
     <TextView
         android:id="@+id/loTemp"
@@ -138,11 +135,11 @@
         android:id="@+id/unitHiTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hiTemp"
-        android:layout_toEndOf="@+id/hiTemp"
+        android:text="@string/tempUnits"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/hiTemp"
-        android:text="@string/tempUnits" />
+        android:layout_alignTop="@+id/hiTemp"
+        android:layout_toRightOf="@+id/unitLowTemp"
+        android:layout_toEndOf="@+id/unitLowTemp" />
 
     <TextView
         android:id="@+id/unitFeelsTemp"
@@ -162,16 +159,5 @@
         android:layout_toEndOf="@+id/loTemp"
         android:layout_toRightOf="@+id/loTemp"
         android:text="@string/tempUnits" />
-
-    <TextView
-        android:id="@+id/feelsLikeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/feelsLikeTempValue"
-        android:layout_alignBottom="@+id/feelsLikeTempValue"
-        android:layout_toLeftOf="@+id/humidityTextView"
-        android:layout_toStartOf="@+id/humidityTextView"
-        android:text="Feels Like:"
-        android:textSize="40dp" />
 
 </RelativeLayout>
