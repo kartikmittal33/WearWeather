@@ -11,7 +11,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.content.Intent;
 
 
 import android.os.AsyncTask;
@@ -40,16 +43,23 @@ public class MainActivity extends AppCompatActivity {
     String result ;
 
 
-    static TextView placeTextView;
-    static TextView temperatureTextView;
+    static TextView currentDay;
+    static TextView hiTempTextView;
+    static TextView lowTempTextView;
+    static TextView humidityTextView;
+    static TextView windTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_layout);
 
-        placeTextView = (TextView) findViewById(R.id.placeTextView);
-        temperatureTextView = (TextView) findViewById(R.id.temperatureTextView);
+        hiTempTextView = (TextView) findViewById(R.id.hiTemp);
+        lowTempTextView = (TextView) findViewById(R.id.loTemp);
+        currentDay = (TextView) findViewById(R.id.currentDay);
+        humidityTextView = (TextView)findViewById(R.id.humidityValueTextView);
+        windTextView = (TextView) findViewById(R.id.windValueTextView);
+
 
 
 
@@ -84,6 +94,32 @@ public class MainActivity extends AppCompatActivity {
         String currentTime = df.format(currTime);
 
         int time = Integer.valueOf(currentTime.substring(11,13));
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch (day) {
+            case Calendar.SUNDAY:
+                currentDay.setText("Sunday");
+
+            case Calendar.MONDAY:
+                currentDay.setText("Monday");
+
+            case Calendar.TUESDAY:
+                currentDay.setText("Tuesday");
+
+            case Calendar.THURSDAY:
+                currentDay.setText("Thrusday");
+
+            case Calendar.WEDNESDAY:
+                currentDay.setText("Wednesday");
+
+            case Calendar.FRIDAY:
+                currentDay.setText("Friday");
+
+            case Calendar.SATURDAY:
+                currentDay.setText("Saturday");
+
+        }
 
 
 
@@ -96,7 +132,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void buttonOnClick(View v){
+        Button button = (Button) v;
+        ((Button) v).setText("clicked");
+    }
 
 
     public class WeatherAPI extends AsyncTask<String, Void, String> {
@@ -145,17 +184,24 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONObject jsonObject = new JSONObject(result);
 
-                String weatherInfo = jsonObject.getString("weather");
                 JSONObject weatherDatas = new JSONObject(jsonObject.getString("main"));
-//
-                double tempInt = Double.parseDouble(weatherDatas.getString("temp"));
-                int tempIn = (int) (tempInt - 273.15);
-//
+
+                double tempIntMax = Double.parseDouble(weatherDatas.getString("temp_max"));
+                int tempMax = (int) ((tempIntMax-273)*1.8+32);
+                double tempIntMin = Double.parseDouble(weatherDatas.getString("temp_min"));
+                int tempMin = (int) ((tempIntMin-273)*1.8+32);
+                JSONObject wind = new JSONObject(jsonObject.getString("wind"));
+                double windValue = Double.parseDouble((wind.getString("speed")));
+
+                double humidityValue = Double.parseDouble(weatherDatas.getString("humidity"));
+
+
                 String placeName = jsonObject.getString("name");
 
-                temperatureTextView.setText(String.valueOf(tempIn));
-
-               placeTextView.setText(placeName);
+                hiTempTextView.setText(String.valueOf(tempMax));
+                lowTempTextView.setText(String.valueOf(tempMin));
+                windTextView.setText(String.valueOf(windValue));
+                humidityTextView.setText(String.valueOf(humidityValue));
 
 
             } catch (Exception e) {
@@ -165,5 +211,19 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
         }
     }
+    public void extendSettings(View view){
+        Intent intent = new Intent(this, SettingsMenu.class);
+        startActivity(intent);
+    }
+    public void extendWeather(View view) {
+        Intent intent = new Intent(this, ExtendedWeather.class);
+        startActivity(intent);
+    }
+
+    public void extendClothing(View view) {
+        Intent intent = new Intent(this, ClothingSuggestions.class);
+        startActivity(intent);
+    }
+
 
 }
