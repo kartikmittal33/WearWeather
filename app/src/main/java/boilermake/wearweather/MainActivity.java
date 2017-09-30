@@ -43,29 +43,27 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
 
     String apiText;
-    String result ;
+    String result;
 
     static TextView currentDay;
     static TextView hiTempTextView;
     static TextView lowTempTextView;
     static TextView humidityTextView;
     static TextView windTextView;
+    static ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        ImageView img = (ImageView) findViewById(R.id.weather);
-        img.setImageResource(R.drawable.sun);
         // /img.setImageResource(R.drawable.sun);
         hiTempTextView = (TextView) findViewById(R.id.hiTemp);
         lowTempTextView = (TextView) findViewById(R.id.loTemp);
         currentDay = (TextView) findViewById(R.id.currentDay);
-        humidityTextView = (TextView)findViewById(R.id.humidityValueTextView);
+        humidityTextView = (TextView) findViewById(R.id.humidityValueTextView);
         windTextView = (TextView) findViewById(R.id.windValueTextView);
-
-
+        img = (ImageView)findViewById(R.id.weather);
 
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         String currentTime = df.format(currTime);
 
-        int time = Integer.valueOf(currentTime.substring(11,13));
+        int time = Integer.valueOf(currentTime.substring(11, 13));
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
 
@@ -127,17 +125,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         WeatherAPI task = new WeatherAPI();
         String urlStr = "http://api.openweathermap.org/data/2.5/weather?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lon) + "&appid=c5e1f2658752e350a9e5702e334e689d";
         task.execute(urlStr);
 
 
-
     }
 
 
-    public void buttonOnClick(View v){
+    public void buttonOnClick(View v) {
         Button button = (Button) v;
         ((Button) v).setText("clicked");
     }
@@ -192,30 +188,29 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject weatherDatas = new JSONObject(jsonObject.getString("main"));
 
                 double tempIntMax = Double.parseDouble(weatherDatas.getString("temp_max"));
-                int tempMax = (int) ((tempIntMax-273)*1.8+32);
+                int tempMax = (int) ((tempIntMax - 273) * 1.8 + 32);
                 double tempIntMin = Double.parseDouble(weatherDatas.getString("temp_min"));
-                int tempMin = (int) ((tempIntMin-273)*1.8+32);
+                int tempMin = (int) ((tempIntMin - 273) * 1.8 + 32);
                 JSONObject wind = new JSONObject(jsonObject.getString("wind"));
                 double windValue = Double.parseDouble((wind.getString("speed")));
 
                 double humidityValue = Double.parseDouble(weatherDatas.getString("humidity"));
 
-                ArrayList<String> descriptionList = new ArrayList<String>();
-                int count = 3;
-                int i = 1;
 
-                while (count < 27) {
-
-                    JSONArray weatherData = jsonObject.getJSONArray("weather");
-                    JSONObject y = weatherData.getJSONObject(0);
-                    String description = y.getString("description");
-                    apiText = description;
-                    descriptionList.add(apiText);
-                    count = count + 3;
-                    i++;
-
-
+                JSONArray weatherData = jsonObject.getJSONArray("weather");
+                JSONObject y = weatherData.getJSONObject(0);
+                String description = y.getString("description");
+                if (description.equals("clear sky")) {
+                    img.setImageResource(R.drawable.sun);
                 }
+                else if (description.equals("few clouds")) {
+                    img.setImageResource(R.drawable.cloud);
+                }
+                else if (description.equals("scattered clouds")) {
+                    img.setImageResource(R.drawable.cloud);
+                }
+                
+
 
                 String placeName = jsonObject.getString("name");
 
@@ -226,16 +221,18 @@ public class MainActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("",e.toString());
+                Log.e("", e.toString());
             }
 
             super.onPostExecute(result);
         }
     }
-    public void extendSettings(View view){
+
+    public void extendSettings(View view) {
         Intent intent = new Intent(this, SettingsMenu.class);
         startActivity(intent);
     }
+
     public void extendWeather(View view) {
         Intent intent = new Intent(this, ExtendedWeather.class);
         startActivity(intent);
@@ -245,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClothingSuggestions.class);
         startActivity(intent);
     }
-
 
 
 }
