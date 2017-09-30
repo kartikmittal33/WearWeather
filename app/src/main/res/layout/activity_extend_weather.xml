@@ -2,92 +2,215 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:layout_alignParentBottom="false"
+    android:layout_alignParentEnd="false"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
     tools:context="boilermake.wearweather.ExtendedWeather">
 
-    <TextView
-        android:id="@+id/temp1"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="102dp"
-        android:layout_marginRight="102dp"
-        android:layout_marginTop="71dp"
-        android:text="TempFirst"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="16dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginLeft="196dp"
+        android:layout_marginStart="196dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/temp1"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="102dp"
+
+
+            android:layout_marginRight="102dp"
+            android:layout_weight="0.72"
+            android:text="TempFirst"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+            android:text="TempSecond"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="12dp"
+
+
+            android:layout_weight="1"
+            android:text="TempThird"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time3"
+
+
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+            android:text="TempFourth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+
+            android:text="TempFifth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+
+
+            android:text="TempSixth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="11dp"
+            android:layout_weight="1"
+
+            android:text="TempSeventh"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/temp8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:layout_weight="1"
+
+            android:text="TempEighth"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp">
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="102dp"
+
+
+            android:layout_marginRight="102dp"
+            android:layout_weight="0.72"
+            android:text="TempFirst"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+            android:text="TempSecond"
+            android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/temp2"
+        android:id="@+id/time3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp1"
-        android:layout_alignStart="@+id/temp1"
-        android:layout_below="@+id/temp1"
-        android:layout_marginTop="11dp"
-        android:text="TempSecond" />
 
-    <TextView
-        android:id="@+id/temp3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp2"
-        android:layout_alignStart="@+id/temp2"
-        android:layout_below="@+id/temp2"
         android:layout_marginTop="12dp"
-        android:text="TempThird" />
 
-    <TextView
-        android:id="@+id/temp4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp3"
-        android:layout_alignStart="@+id/temp3"
-        android:layout_below="@+id/temp3"
-        android:layout_marginTop="11dp"
-        android:text="TempFourth" />
 
-    <TextView
-        android:id="@+id/temp5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp4"
-        android:layout_alignStart="@+id/temp4"
-        android:layout_below="@+id/temp4"
-        android:layout_marginTop="11dp"
-        android:text="TempFifth" />
+        android:layout_weight="1"
+        android:text="TempThird"
+        android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/temp6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp5"
-        android:layout_alignStart="@+id/temp5"
-        android:layout_below="@+id/temp5"
-        android:layout_marginTop="12dp"
-        android:text="TempSixth" />
+        <TextView
+            android:id="@+id/time4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time3"
 
-    <TextView
-        android:id="@+id/temp7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp6"
-        android:layout_alignStart="@+id/temp6"
-        android:layout_below="@+id/temp6"
-        android:layout_marginTop="11dp"
-        android:text="TempSeventh" />
 
-    <TextView
-        android:id="@+id/temp8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temp7"
-        android:layout_alignStart="@+id/temp7"
-        android:layout_below="@+id/temp7"
-        android:layout_marginTop="15dp"
-        android:text="TempEighth" />
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+            android:text="TempFourth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+
+            android:layout_weight="1"
+
+            android:text="TempFifth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+
+
+            android:text="TempSixth"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="11dp"
+            android:layout_weight="1"
+
+            android:text="TempSeventh"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/time8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:layout_weight="1"
+
+            android:text="TempEighth"
+            android:textSize="20dp" />
+</LinearLayout>
 </RelativeLayout>

@@ -54,7 +54,7 @@ public class ExtendedWeather extends AppCompatActivity {
 
         firstTemp = (TextView) findViewById(R.id.temp1);
         secondTemp = (TextView) findViewById(R.id.temp2);
-        thirdTemp = (TextView) findViewById(R.id.temp3);
+        thirdTemp = (TextView) findViewById(R.id.time3);
         fourthTemp = (TextView) findViewById(R.id.temp4);
         fifthTemp = (TextView) findViewById(R.id.temp5);
         sixthTemp = (TextView) findViewById(R.id.temp6);
