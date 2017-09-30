@@ -16,18 +16,29 @@ import android.widget.TextView;
 
 import android.os.AsyncTask;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.*;
+import java.util.Scanner;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    String apiText;
+    String result ;
+
 
     static TextView placeTextView;
     static TextView temperatureTextView;
@@ -59,22 +70,31 @@ public class MainActivity extends AppCompatActivity {
         }
         Location location = locationManager.getLastKnownLocation(provider);
 
-       double lat = location.getLatitude();
-//        double lat = 40.423705;
+//       double lat = location.getLatitude();
+        double lat = 40;
 
 
-        double lon = location.getLongitude();
-//        double lon = -86.921195;
+//        double lon = location.getLongitude();
+        double lon = -86;
+
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+        Date currTime = Calendar.getInstance().getTime();
+
+        String currentTime = df.format(currTime);
+
+        int time = Integer.valueOf(currentTime.substring(11,13));
 
 
 
         WeatherAPI task = new WeatherAPI();
-
-        task.execute("http://api.openweathermap.org/data/2.5/forecast?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lon) + "&appid=c5e1f2658752e350a9e5702e334e689d");
+        String urlStr = "http://api.openweathermap.org/data/2.5/weather?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lon) + "&appid=c5e1f2658752e350a9e5702e334e689d";
+        task.execute(urlStr);
 
 
 
     }
+
 
 
 
@@ -85,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
 
-            String result = "";
             URL url;
             HttpURLConnection urlConnection = null;
 
@@ -96,24 +115,26 @@ public class MainActivity extends AppCompatActivity {
 
                 InputStream in = urlConnection.getInputStream();
 
-                InputStreamReader reader = new InputStreamReader(in);
-
-                int data = reader.read();
-
-                while (data != -1) {
-                    char current = (char) data;
-                    result += current;
-                    data = reader.read();
+                final int bufferSize = 1024;
+                final char[] buffer = new char[bufferSize];
+                final StringBuilder out = new StringBuilder();
+                Reader in2 = new InputStreamReader(in, "UTF-8");
+                for (; ; ) {
+                    int rsz = in2.read(buffer, 0, buffer.length);
+                    if (rsz < 0)
+                        break;
+                    out.append(buffer, 0, rsz);
                 }
+                result = out.toString();
 
                 return result;
 
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }
 
-            return null;
+            }
+            return result;
         }
 
 
@@ -121,24 +142,24 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             try {
+
                 JSONObject jsonObject = new JSONObject(result);
-                String kartik = jsonObject.toString();
+
                 String weatherInfo = jsonObject.getString("weather");
                 JSONObject weatherDatas = new JSONObject(jsonObject.getString("main"));
-
+//
                 double tempInt = Double.parseDouble(weatherDatas.getString("temp"));
                 int tempIn = (int) (tempInt - 273.15);
-
+//
                 String placeName = jsonObject.getString("name");
-                System.out.println("done");
 
                 temperatureTextView.setText(String.valueOf(tempIn));
 
-                placeTextView.setText(placeName);
+               placeTextView.setText(placeName);
 
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("",e.toString());
             }
 
             super.onPostExecute(result);
