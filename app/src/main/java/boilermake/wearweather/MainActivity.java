@@ -200,6 +200,22 @@ public class MainActivity extends AppCompatActivity {
 
                 double humidityValue = Double.parseDouble(weatherDatas.getString("humidity"));
 
+                ArrayList<String> descriptionList = new ArrayList<String>();
+                int count = 3;
+                int i = 1;
+
+                while (count < 27) {
+
+                    JSONArray weatherData = jsonObject.getJSONArray("weather");
+                    JSONObject y = weatherData.getJSONObject(0);
+                    String description = y.getString("description");
+                    apiText = description;
+                    descriptionList.add(apiText);
+                    count = count + 3;
+                    i++;
+
+
+                }
 
                 String placeName = jsonObject.getString("name");
 
