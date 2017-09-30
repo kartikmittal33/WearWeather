@@ -169,7 +169,7 @@ public class ExtendedWeather extends AppCompatActivity {
                     String dt_txt = x.getString("dt_txt");
                     time.add(dt_txt);
                     JSONObject main = x.getJSONObject("main");
-                    double temp = (main.getDouble("temp"));
+                    double temp = Math.round((main.getDouble("temp")-273.15)*1.8 +32);
                     apiText = Double.toString(temp);
                     temperature.add(apiText);
 
