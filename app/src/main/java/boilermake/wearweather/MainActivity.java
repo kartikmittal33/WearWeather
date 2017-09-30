@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.content.Intent;
 
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     String apiText;
     String result ;
 
-
     static TextView currentDay;
     static TextView hiTempTextView;
     static TextView lowTempTextView;
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+        ImageView img = (ImageView) findViewById(R.id.weather);
+        img.setImageResource(R.drawable.sun);
+        // /img.setImageResource(R.drawable.sun);
         hiTempTextView = (TextView) findViewById(R.id.hiTemp);
         lowTempTextView = (TextView) findViewById(R.id.loTemp);
         currentDay = (TextView) findViewById(R.id.currentDay);
@@ -224,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClothingSuggestions.class);
         startActivity(intent);
     }
+
 
 
 }
