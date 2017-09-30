@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="boilermake.wearweather.MainActivity">
+
+
+    <TextView
+        android:id="@+id/currentDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dayOfWeek"
+        android:textSize="30sp"
+
+        android:layout_marginTop="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/extendClothing"
+        android:layout_width="wrap_content"
+        android:layout_height="77dp"
+        android:onClick="extendClothing"
+        android:text="@string/clothingRecommended"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/extendWeather"
+        android:layout_width="177dp"
+        android:layout_height="77dp"
+        android:onClick="extendWeather"
+        android:text="Weather Forecast"
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="498dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/extendClothing"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/humidityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Humidity"
+        android:textSize="25dp"
+        android:layout_below="@+id/feelsLikeTempValue"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginTop="59dp" />
+
+    <TextView
+        android:id="@+id/humidityValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/humidityTextView"
+        android:layout_alignStart="@+id/humidityTextView"
+        android:layout_below="@+id/windTextView"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:text="HumidityValue"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/windTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/humidityTextView"
+        android:layout_alignBottom="@+id/humidityTextView"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView"
+        android:text="Wind"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/windValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/humidityValueTextView"
+        android:layout_alignBottom="@+id/humidityValueTextView"
+        android:layout_alignLeft="@+id/windTextView"
+        android:layout_alignStart="@+id/windTextView"
+        android:gravity="center_horizontal"
+        android:text="WindValue"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/feelsLikeTempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/loTemp"
+        android:layout_toRightOf="@+id/loTemp"
+        android:text="@string/feelsLikeTemp"
+        android:textSize="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="239dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/currentDay"
+        android:layout_alignLeft="@+id/currentDay"
+        android:layout_alignStart="@+id/currentDay"
+        android:layout_alignRight="@+id/currentDay"
+        android:layout_alignEnd="@+id/currentDay" />
+
+    <TextView
+        android:id="@+id/hiTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/humidityTextView"
+        android:layout_alignStart="@+id/humidityTextView"
+        android:layout_alignTop="@+id/imageView"
+        android:text="70"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/loTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/hiTemp"
+        android:layout_alignStart="@+id/hiTemp"
+        android:layout_below="@+id/hiTemp"
+        android:text="50"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/unitHiTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/hiTemp"
+        android:layout_toEndOf="@+id/hiTemp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/hiTemp"
+        android:text="@string/tempUnits" />
+
+    <TextView
+        android:id="@+id/unitFeelsTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tempUnits"
+        android:layout_marginTop="5dp"
+        android:layout_alignTop="@+id/feelsLikeTempValue"
+        android:layout_toRightOf="@+id/feelsLikeTempValue"
+        android:layout_toEndOf="@+id/feelsLikeTempValue" />
+
+    <TextView
+        android:id="@+id/unitLowTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hiTemp"
+        android:layout_toEndOf="@+id/loTemp"
+        android:layout_toRightOf="@+id/loTemp"
+        android:text="@string/tempUnits" />
+
+    <TextView
+        android:id="@+id/feelsLikeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/feelsLikeTempValue"
+        android:layout_alignBottom="@+id/feelsLikeTempValue"
+        android:layout_toLeftOf="@+id/humidityTextView"
+        android:layout_toStartOf="@+id/humidityTextView"
+        android:text="Feels Like:"
+        android:textSize="40dp" />
+
+</RelativeLayout>
