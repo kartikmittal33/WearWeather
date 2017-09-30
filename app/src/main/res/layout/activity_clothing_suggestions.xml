@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/Descript"
-        android:layout_width="129dp"
-        android:layout_height="56dp"
+        android:layout_width="281dp"
+        android:layout_height="192dp"
         android:text="@string/description"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="46dp" />
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="63dp" />
 </android.support.constraint.ConstraintLayout>
