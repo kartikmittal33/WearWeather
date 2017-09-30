@@ -54,11 +54,11 @@ public class ClothingSuggestions extends AppCompatActivity {
         Location location = locationManager.getLastKnownLocation(provider);
 
 //       double lat = location.getLatitude();
-        double lat = 40;
+        double lat = 40.4525;
 
 
 //        double lon = location.getLongitude();
-        double lon = -86;
+        double lon = 74.4767;
         WeatherAPI task = new WeatherAPI();
         String urlStr = "http://api.openweathermap.org/data/2.5/forecast?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lon) + "&appid=c5e1f2658752e350a9e5702e334e689d";
         task.execute(urlStr);
@@ -113,26 +113,91 @@ public class ClothingSuggestions extends AppCompatActivity {
 
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray list = jsonObject.getJSONArray("list");
-                ArrayList<String> description = new ArrayList<String>();
+                ArrayList<String> descriptionList = new ArrayList<String>();
                 int count = 3;
                 int i = 1;
 
                 while (count < 27) {
 
                     JSONObject x = list.getJSONObject(i);
+                    JSONArray windList = x.getJSONArray("weather");
+                    JSONObject y = windList.getJSONObject(0);
                     String dt_txt = x.getString("dt_txt");
-                    JSONObject main = x.getJSONObject("weather");
-                    double temp = (main.getDouble("description"));
-                    apiText = Double.toString(temp);
-                    description.add(apiText);
-
-                    count += 3;
+                    String description = y.getString("description");
+                    apiText = description;
+                    descriptionList.add(apiText);
+                    count = count + 3;
                     i++;
 
 
                 }
 
-                Descript1.setText(description.get(0)+description.get(1)+description.get(2)+description.get(3)+description.get(4)+description.get(5)+description.get(6)+description.get(7));
+
+                int count2=0;
+                int count3=0;
+                int count4=0;
+                int count5=0;
+                int count6=0;
+                int count7=0;
+                int count8=0;
+                int count9=0;
+                int count10=0;
+                for(int j=0; j<descriptionList.size(); j++){
+                    if(descriptionList.get(j).equals("clear sky")){
+                        count2++;
+                    }
+                    if(descriptionList.get(j).equals("few clouds")){
+                        count3++;
+                    }
+                    if(descriptionList.get(j).equals("scattered clouds")){
+                        count4++;
+                    }
+                    if(descriptionList.get(j).equals("broken clouds")){
+                        count5++;
+                    }
+                    if(descriptionList.get(j).equals("shower rain")){
+                        count6++;
+                    }
+                    if(descriptionList.get(j).equals("rain")){
+                        count7++;
+                    }
+                    if(descriptionList.get(j).equals("thunderstorm")){
+                        count8++;
+                    }
+                    if(descriptionList.get(j).equals("snow")){
+                        count9++;
+                    }
+                    if(descriptionList.get(j).equals("mist")){
+                        count10++;
+                    }
+                }
+
+                if(count2>5){
+                    Descript1.setText("Wear a cotton shirt and jeans. The day is nice and you should be good to go.");
+                }
+                if(count3>3 || count4>3){
+                    Descript1.setText("The weather is cloudy. You may want to wear a jacket.");
+                }
+                if(count5>3){
+                    Descript1.setText("Most likely it is going to rain. Wear a jacket and take your umbrella");
+                }
+                if(count6>2){
+                    Descript1.setText("It is going to rain slightly. Wear a jacket and take your umbrella");
+                }
+                if(count7>2){
+                    Descript1.setText("It is going to rain. Wear your jacket, boots and take your umbrella");
+                }
+                if(count8>2){
+                    Descript1.setText("There is a thunderstorm. Wear your jacket, boots and take your umbrella. Try to stay indoors");
+                }
+                if(count9>2){
+                    Descript1.setText("It will snow today. Wear your jacket, coat, boots and take your umbrella in case. Try to stay indoors");
+                }
+                if(count10>2){
+                    Descript1.setText("There is mist today. Be careful while you drive. Make sure you wear a jacket in case");
+                }
+
+
 
 
 
