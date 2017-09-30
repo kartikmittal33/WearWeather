@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Wear Weather</string>
     <string name="tempUnits">°F</string>
     <string name="temp">60</string>
     <string name="weatherType">Cloudy</string>
