@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 currentDay.setText("Tuesday");
 
             case Calendar.THURSDAY:
-                currentDay.setText("Thrusday");
+                currentDay.setText("Thursday");
 
             case Calendar.WEDNESDAY:
                 currentDay.setText("Wednesday");

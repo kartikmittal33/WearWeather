@@ -13,8 +13,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginLeft="220dp"
-        android:orientation="vertical">
+        android:addStatesFromChildren="true"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_marginLeft="176dp"
+        android:layout_marginStart="176dp">
+
 
         <TextView
             android:id="@+id/temp1"
@@ -109,116 +115,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="125dp"
-        android:layout_alignParentTop="true"
-        >
-
-        <TextView
-            android:id="@+id/unit1"
-            android:layout_width="122dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="102dp"
-
-
-            android:layout_marginRight="102dp"
-            android:layout_weight="0.72"
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-
-            android:layout_weight="1"
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="12dp"
-
-
-            android:layout_weight="1"
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/temp3"
-
-
-            android:layout_marginTop="11dp"
-
-            android:layout_weight="1"
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-
-            android:layout_weight="1"
-
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_weight="1"
-
-
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="11dp"
-            android:layout_weight="1"
-
-            android:text="°F"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/unit8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-
-            android:layout_weight="1"
-
-            android:text="°F"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:orientation="vertical">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/time1"

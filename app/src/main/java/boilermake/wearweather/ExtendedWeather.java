@@ -30,7 +30,7 @@ public class ExtendedWeather extends AppCompatActivity {
 
     String apiText;
     String result;
-
+    String tempUnit = "°F";
 
 
     static TextView firstTemp;
@@ -179,14 +179,14 @@ public class ExtendedWeather extends AppCompatActivity {
 
                 }
 
-                firstTemp.setText(temperature.get(0));
-                secondTemp.setText(temperature.get(1));
-                thirdTemp.setText(temperature.get(2));
-                fourthTemp.setText(temperature.get(3));
-                fifthTemp.setText(temperature.get(4));
-                sixthTemp.setText(temperature.get(5));
-                seventhTemp.setText(temperature.get(6));
-                eightTemp.setText(temperature.get(7));
+                firstTemp.setText(temperature.get(0) + tempUnit);
+                secondTemp.setText(temperature.get(1)+ tempUnit);
+                thirdTemp.setText(temperature.get(2)+ tempUnit);
+                fourthTemp.setText(temperature.get(3)+ tempUnit);
+                fifthTemp.setText(temperature.get(4)+ tempUnit);
+                sixthTemp.setText(temperature.get(5)+ tempUnit);
+                seventhTemp.setText(temperature.get(6)+ tempUnit);
+                eightTemp.setText(temperature.get(7)+ tempUnit);
 
                 time1.setText(time.get(0));
                 time2.setText(time.get(1));
