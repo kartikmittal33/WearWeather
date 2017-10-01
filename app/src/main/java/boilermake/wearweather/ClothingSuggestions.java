@@ -31,10 +31,10 @@ public class ClothingSuggestions extends AppCompatActivity {
     String result;
 
     static TextView Descript1;
-    ImageView coatImgView;
-    ImageView shirtImgView;
-    ImageView pantImgView;
-    ImageView shoeImgView;
+    static ImageView coatImgView;
+    static ImageView shirtImgView;
+    static ImageView pantImgView;
+    static ImageView shoeImgView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,7 +181,7 @@ public class ClothingSuggestions extends AppCompatActivity {
                     }
                 }
 
-                if(count2>5){
+                if(count2>=5){
                     Descript1.setText("Wear a cotton shirt and jeans. The day is nice. You should be good to go.");
                     coatImgView.setImageAlpha(0);
                     shirtImgView.setImageResource(R.drawable.purpletee);
@@ -189,49 +189,49 @@ public class ClothingSuggestions extends AppCompatActivity {
                     shoeImgView.setImageResource(R.drawable.trainers);
 
                 }
-                else if(count3>3 || count4>3){
+                else if(count3>=3 || count4>=3){
                     Descript1.setText("The weather is cloudy. You may want to wear a jacket.");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.pants);
                     shoeImgView.setImageResource(R.drawable.greendressshoes);
                 }
-                else if(count5>3){
+                else if(count5>=3){
                     Descript1.setText("It is most likely going to rain. Wear a jacket and take your umbrella");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.trainers);
                 }
-                else if(count6>2){
+                else if(count6>=2){
                     Descript1.setText("It is going to rain slightly. Wear a jacket and take your umbrella");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.trainers);
                 }
-                else if(count7>2){
+                else if(count7>=2){
                     Descript1.setText("It is going to rain. Wear your jacket, boots and take your umbrella");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
                 }
-                else if(count8>2){
+                else if(count8>=2){
                     Descript1.setText("There is a thunderstorm. Wear your jacket, boots and take your umbrella. Try to stay indoors");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
                 }
-                else if(count9>2){
+                else if(count9>=2){
                     Descript1.setText("It will snow today. Wear your jacket, coat, boots and take your umbrella in case. Try to stay indoors");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
                 }
-                else if(count10>2){
+                else if(count10>=2){
                     Descript1.setText("There is mist today. Be careful while you drive. Make sure you wear a jacket for warmth");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
