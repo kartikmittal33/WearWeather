@@ -119,107 +119,125 @@
         android:layout_height="0dp"
 
         android:layout_weight="1">
+
         <LinearLayout
-            android:layout_width="wrap_content"
             android:id="@+id/bottomTopLiner"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/descriptionStringTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/descriptionStringTextView"
+
                 android:layout_marginTop="10dp"
                 android:text="descriptionString"
+
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_centerHorizontal="true"/>
+
             <TextView
+                android:id="@+id/placeNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/placeNameTextView"
-                android:text="placeName"
-                android:textSize="30dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@id/descriptionStringTextView"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="placeName"
+                android:textSize="30dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_centerHorizontal="true"
             android:id="@+id/bottomUpperMiddleLaoyout"
-            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/bottomTopLiner"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
                 android:id="@+id/windTextView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="Wind"
-                android:textSize="25dp"/>
+                android:textSize="25dp" />
+
             <TextView
+                android:id="@+id/humidityTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/humidityTextView"
                 android:layout_weight="1"
-                android:text="Humidity"
                 android:gravity="center"
-                android:textSize="25dp"/>
+                android:text="Humidity"
+                android:textSize="25dp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/bottomUpperMiddleLaoyout"
-            android:layout_height="wrap_content">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
                 android:id="@+id/windValueTextView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="WV"
-                android:textSize="25dp"/>
+                android:textSize="25dp" />
+
             <TextView
+                android:id="@+id/humidityValueTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/humidityValueTextView"
                 android:layout_weight="1"
-                android:text="HV"
                 android:gravity="center"
-                android:textSize="25dp"/>
+                android:text="HV"
+                android:textSize="25dp" />
 
         </LinearLayout>
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="77dp"
                 android:id="@+id/extendClothing"
+                android:layout_width="187dp"
+                android:layout_height="80dp"
+
                 android:onClick="extendClothing"
                 android:text="@string/clothingRecommended"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-                />
             <Button
-                android:layout_width="177dp"
-                android:layout_height="77dp"
                 android:id="@+id/extendWeather"
+                android:layout_width="187dp"
+                android:layout_height="80dp"
                 android:onClick="extendWeather"
+
                 android:text="Weather Forecast"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/extendClothing"
+                android:layout_toEndOf="@+id/extendClothing" />
 
-                />
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </RelativeLayout>

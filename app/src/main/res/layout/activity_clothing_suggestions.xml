@@ -3,16 +3,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
     tools:context="boilermake.wearweather.ClothingSuggestions">
 
     <TextView
         android:id="@+id/Descript"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
         android:text="@string/description"
         android:textSize="35sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp">
+
+        <ImageView
+            android:id="@+id/coatImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/shoeImageView"
+            android:layout_alignStart="@+id/shoeImageView"
+            android:layout_below="@+id/pantImageView"
+            android:layout_marginTop="99dp"
+            android:gravity="center"
+            app:srcCompat="@drawable/blackwhiteboot" />
+
+        <ImageView
+            android:id="@+id/shirtImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Descript"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            app:srcCompat="@drawable/blackwhiteboot" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/pantImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/shirtImageView"
+            android:layout_alignStart="@+id/shirtImageView"
+            android:layout_below="@+id/shirtImageView"
+            android:gravity="center"
+            app:srcCompat="@drawable/blackwhiteboot" />
+        <ImageView
+            android:id="@+id/shoeImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pantImageView"
+            android:layout_alignStart="@+id/pantImageView"
+            android:layout_below="@+id/pantImageView"
+            android:gravity="center"
+            app:srcCompat="@drawable/blackwhiteboot" />
+    </LinearLayout>
 </RelativeLayout>
