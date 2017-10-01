@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     static TextView humidityTextView;
     static TextView windTextView;
     static ImageView img;
+    static TextView realTempTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         humidityTextView = (TextView) findViewById(R.id.humidityValueTextView);
         windTextView = (TextView) findViewById(R.id.windValueTextView);
         img = (ImageView)findViewById(R.id.weather);
+        realTempTextView = (TextView)findViewById(R.id.realTempTextView);
 
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -191,6 +194,8 @@ public class MainActivity extends AppCompatActivity {
                 int tempMax = (int) ((tempIntMax - 273) * 1.8 + 32);
                 double tempIntMin = Double.parseDouble(weatherDatas.getString("temp_min"));
                 int tempMin = (int) ((tempIntMin - 273) * 1.8 + 32);
+                double tempInt = Double.parseDouble(weatherDatas.getString("temp"));
+                int temp = (int) ((tempInt - 273) * 1.8 + 32);
                 JSONObject wind = new JSONObject(jsonObject.getString("wind"));
                 double windValue = Double.parseDouble((wind.getString("speed")));
 
@@ -213,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String placeName = jsonObject.getString("name");
+                realTempTextView.setText(String.valueOf(temp));
 
                 hiTempTextView.setText(String.valueOf(tempMax));
                 lowTempTextView.setText(String.valueOf(tempMin));
