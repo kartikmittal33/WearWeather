@@ -161,7 +161,7 @@ public class ExtendedWeather extends AppCompatActivity {
                 ArrayList<String> temperature = new ArrayList<String>();
                 ArrayList<String> time = new ArrayList<String >();
                 int count = 3;
-                int i = 1;
+                int i = 0;
 
                 while (count < 27) {
 

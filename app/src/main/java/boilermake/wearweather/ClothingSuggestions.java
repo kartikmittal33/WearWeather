@@ -115,7 +115,7 @@ public class ClothingSuggestions extends AppCompatActivity {
                 JSONArray list = jsonObject.getJSONArray("list");
                 ArrayList<String> descriptionList = new ArrayList<String>();
                 int count = 3;
-                int i = 1;
+                int i = 0;
 
                 while (count < 27) {
 
