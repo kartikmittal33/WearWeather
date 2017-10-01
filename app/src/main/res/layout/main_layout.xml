@@ -67,14 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_below="@id/humidityTextView"
-        android:layout_alignStart="@id/humidityTextView"
-        android:layout_alignLeft="@id/humidityTextView"
-        android:layout_marginTop="24dp"
         android:text="HV"
         android:textSize="25dp"
-        android:layout_alignRight="@+id/humidityTextView"
-        android:layout_alignEnd="@+id/humidityTextView" />
+        android:layout_below="@+id/humidityTextView"
+        android:layout_alignLeft="@+id/humidityTextView"
+        android:layout_alignStart="@+id/humidityTextView" />
 
     <TextView
         android:id="@+id/windTextView"
@@ -91,14 +88,12 @@
         android:id="@+id/windValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="WV"
+        android:layout_alignLeft="@+id/windTextView"
+        android:layout_alignStart="@+id/windTextView"
+        android:layout_below="@+id/windTextView"
         android:gravity="center_horizontal"
-        android:layout_marginLeft="18dp"
-        android:layout_alignStart="@id/windTextView"
-        android:layout_alignLeft="@id/windTextView"
-        android:textSize="25dp"
-        android:layout_below="@+id/windTextView" />
+        android:text="WV"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/realTempTextView"
