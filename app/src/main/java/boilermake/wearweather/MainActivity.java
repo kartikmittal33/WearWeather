@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     static TextView windTextView;
     static ImageView img;
     static TextView realTempTextView;
+    static TextView descriptionStringTextView;
 
 
     @Override
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         windTextView = (TextView) findViewById(R.id.windValueTextView);
         img = (ImageView)findViewById(R.id.weather);
         realTempTextView = (TextView)findViewById(R.id.realTempTextView);
+        descriptionStringTextView = (TextView) findViewById(R.id.descriptionStringTextView);
 
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -206,19 +208,36 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject y = weatherData.getJSONObject(0);
                 String description = y.getString("description");
                 if (description.equals("clear sky")) {
-                    img.setImageResource(R.drawable.sun);
+                    img.setImageResource(R.drawable.clearsky);
                 }
                 else if (description.equals("few clouds")) {
-                    img.setImageResource(R.drawable.cloud);
+                    img.setImageResource(R.drawable.fewclouds);
                 }
-                else if (description.equals("scattered clouds")) {
-                    img.setImageResource(R.drawable.cloud);
+                else if (description.equals("scattered clouds") || description.equals("broken clouds") ) {
+                    img.setImageResource(R.drawable.scatteredclouds);
                 }
+                else if (description.equals("shower rain")) {
+                    img.setImageResource(R.drawable.showerrain);
+                }
+                else if (description.equals("rain")) {
+                    img.setImageResource(R.drawable.rain);
+                }
+                else if (description.equals("thunderstorm")) {
+                    img.setImageResource(R.drawable.thunderstorm);
+                }
+                else if (description.equals("snow")) {
+                    img.setImageResource(R.drawable.snow);
+                }
+                else if (description.equals("mist") || description.equals("haze")) {
+                    img.setImageResource(R.drawable.mist);
+                }
+
                 
 
 
                 String placeName = jsonObject.getString("name");
                 realTempTextView.setText(String.valueOf(temp));
+                descriptionStringTextView.setText(String.valueOf(description).toUpperCase());
 
                 hiTempTextView.setText(String.valueOf(tempMax));
                 lowTempTextView.setText(String.valueOf(tempMin));

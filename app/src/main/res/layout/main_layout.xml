@@ -107,7 +107,7 @@
         android:layout_height="200dp"
         android:layout_below="@+id/currentDay"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/cloud" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/hiTemp"
@@ -160,5 +160,15 @@
         android:layout_toEndOf="@+id/loTemp"
         android:layout_toRightOf="@+id/loTemp"
         android:text="@string/tempUnits" />
+
+    <TextView
+        android:id="@+id/descriptionStringTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="descriptionString"
+        android:textSize="20dp"
+        android:layout_above="@+id/humidityTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>
