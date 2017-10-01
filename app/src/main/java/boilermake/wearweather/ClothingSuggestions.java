@@ -64,11 +64,11 @@ public class ClothingSuggestions extends AppCompatActivity {
         Location location = locationManager.getLastKnownLocation(provider);
 
 //       double lat = location.getLatitude();
-        double lat = 40.4525;
+        double lat = 40;
 
 
 //        double lon = location.getLongitude();
-        double lon = 74.4767;
+        double lon = -86;
         WeatherAPI task = new WeatherAPI();
         String urlStr = "http://api.openweathermap.org/data/2.5/forecast?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lon) + "&appid=c5e1f2658752e350a9e5702e334e689d";
         task.execute(urlStr);
