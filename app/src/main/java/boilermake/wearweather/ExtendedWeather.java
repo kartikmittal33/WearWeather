@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -32,25 +33,11 @@ public class ExtendedWeather extends AppCompatActivity {
     String result;
 
 
-    static TextView firstTemp;
-    static TextView secondTemp;
-    static TextView thirdTemp;
-    static TextView fourthTemp;
-    static TextView fifthTemp;
-    static TextView sixthTemp;
-    static TextView seventhTemp;
-    static TextView eightTemp;
+    static TextView firstTemp, secondTemp, thirdTemp, fourthTemp, fifthTemp, sixthTemp, seventhTemp, eightTemp;
 
-    static TextView time1;
-    static TextView time2;
-    static TextView time3;
-    static TextView time4;
-    static TextView time5;
-    static TextView time6;
-    static TextView time7;
-    static TextView time8;
+    static TextView time1, time2, time3, time4, time5, time6, time7, time8;
 
-
+    static ImageView img1, img2, img3, img4, img5, img6, img7, img8;
 
 
 
@@ -77,6 +64,15 @@ public class ExtendedWeather extends AppCompatActivity {
         time6 = (TextView) findViewById(R.id.time6);
         time7 = (TextView) findViewById(R.id.time7);
         time8 = (TextView) findViewById(R.id.time8);
+
+        img1 = (ImageView) findViewById(R.id.firstImageView);
+        img2 = (ImageView) findViewById(R.id.secondImageView);
+        img3 = (ImageView) findViewById(R.id.thirdImageView);
+        img4 = (ImageView) findViewById(R.id.fourthImageView);
+        img5 = (ImageView) findViewById(R.id.fifthImageView);
+        img6 = (ImageView) findViewById(R.id.sixthImageView);
+        img7 = (ImageView) findViewById(R.id.seventhImageView);
+        img8 = (ImageView) findViewById(R.id.eighthImageView);
 
 
 

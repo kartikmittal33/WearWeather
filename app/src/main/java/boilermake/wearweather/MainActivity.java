@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     static protected String currTempUnit = "°F";
     static protected String nextTempUnit = "";
     static protected int tempMinF, tempMaxF, tempF, tempMinC, tempMaxC, tempC;
+    static String windUnits = "m/s";
 
     static TextView currentDay;
     static TextView hiTempTextView;
@@ -108,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
         }
         Location location = locationManager.getLastKnownLocation(provider);
 
-//       double lat = location.getLatitude();
+    //   double lat = location.getLatitude();
         double lat = 40;
 
 
-//        double lon = location.getLongitude();
+  //      double lon = location.getLongitude();
         double lon = -86;
 
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -165,11 +166,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
-        //  Log.d("myTag", "I am here");
-        boolean checked = ((RadioButton) view).isChecked();
-        Log.d("tempUnit", String.valueOf(view.getId()));
 
-        //recalculateTemps(currTempUnit, nextTempUnit);
+        boolean checked = ((RadioButton) view).isChecked();
+
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radio_farenheit:
@@ -306,8 +305,8 @@ public class MainActivity extends AppCompatActivity {
                 realTempTextView.setText(String.valueOf(tempF));
                 descriptionStringTextView.setText(String.valueOf(description).toUpperCase());
 
-                windTextView.setText(String.valueOf(windValue));
-                humidityTextView.setText(String.valueOf(humidityValue) + "%");
+                windTextView.setText(String.valueOf(windValue)+ " " + windUnits);
+                humidityTextView.setText(String.valueOf(humidityValue) + humidUnits);
                 placeNameTextView.setText(placeName);
 
                 hiTempTextView.setText(String.valueOf(tempMaxF));
