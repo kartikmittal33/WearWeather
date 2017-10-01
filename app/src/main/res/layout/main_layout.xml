@@ -8,58 +8,67 @@
 
 
     <TextView
+        android:id="@+id/descriptionStringTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/realTempTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:text="descriptionString"
+        android:textSize="20dp" />
+
+    <TextView
         android:id="@+id/currentDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dayOfWeek"
-        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
 
         android:layout_marginTop="22dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/dayOfWeek"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/extendClothing"
         android:layout_width="wrap_content"
         android:layout_height="77dp"
-        android:onClick="extendClothing"
-        android:text="@string/clothingRecommended"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="extendClothing"
+        android:text="@string/clothingRecommended" />
 
     <Button
         android:id="@+id/extendWeather"
         android:layout_width="177dp"
         android:layout_height="77dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/extendClothing"
         android:onClick="extendWeather"
         android:text="Weather Forecast"
         tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="498dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/extendClothing"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        tools:layout_editor_absoluteY="498dp" />
 
     <TextView
         android:id="@+id/humidityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionStringTextView"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="14dp"
         android:text="Humidity"
-        android:textSize="25dp"
-        android:layout_above="@+id/extendWeather"
-        android:layout_toRightOf="@+id/unitFeelsTemp"
-        android:layout_toEndOf="@+id/unitFeelsTemp"
-        android:layout_marginBottom="100dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/humidityValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/windValueTextView"
+        android:layout_alignBottom="@+id/windValueTextView"
         android:layout_alignLeft="@+id/humidityTextView"
         android:layout_alignStart="@+id/humidityTextView"
-        android:layout_below="@+id/windTextView"
-        android:layout_marginTop="25dp"
         android:gravity="center_horizontal"
         android:text="HumidityValue"
         android:textSize="25dp" />
@@ -68,24 +77,19 @@
         android:id="@+id/windTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionStringTextView"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="14dp"
         android:text="Wind"
-        android:textSize="25dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_alignBaseline="@+id/humidityTextView"
-        android:layout_alignBottom="@+id/humidityTextView"
-        android:layout_toLeftOf="@+id/currentDay"
-        android:layout_toStartOf="@+id/currentDay" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/windValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/humidityValueTextView"
-        android:layout_alignBottom="@+id/humidityValueTextView"
-        android:layout_alignLeft="@+id/windTextView"
-        android:layout_alignStart="@+id/windTextView"
-        android:gravity="center_horizontal"
+        android:layout_below="@+id/windTextView"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="24dp"
         android:text="WindValue"
         android:textSize="25dp" />
 
@@ -93,13 +97,13 @@
         android:id="@+id/realTempTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/feelsLikeTemp"
         android:textSize="60dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="239dp"
-        android:layout_below="@+id/weather"
-        android:layout_centerHorizontal="true" />
+        tools:layout_editor_absoluteY="239dp" />
 
     <ImageView
         android:id="@+id/weather"
@@ -116,10 +120,8 @@
         android:text="70"
         android:textSize="35dp"
         android:layout_alignTop="@+id/weather"
-        android:layout_alignRight="@+id/humidityTextView"
-        android:layout_alignEnd="@+id/humidityTextView"
-        android:layout_marginRight="23dp"
-        android:layout_marginEnd="23dp" />
+        android:layout_toRightOf="@+id/weather"
+        android:layout_toEndOf="@+id/weather" />
 
     <TextView
         android:id="@+id/loTemp"
@@ -135,22 +137,22 @@
         android:id="@+id/unitHiTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tempUnits"
-        android:layout_marginTop="5dp"
         android:layout_alignTop="@+id/hiTemp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/unitLowTemp"
         android:layout_toRightOf="@+id/unitLowTemp"
-        android:layout_toEndOf="@+id/unitLowTemp" />
+        android:text="@string/tempUnits" />
 
     <TextView
         android:id="@+id/unitFeelsTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tempUnits"
-        android:textSize="25sp"
-        android:layout_marginTop="5dp"
         android:layout_alignTop="@+id/realTempTextView"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/realTempTextView"
         android:layout_toRightOf="@+id/realTempTextView"
-        android:layout_toEndOf="@+id/realTempTextView" />
+        android:text="@string/tempUnits"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/unitLowTemp"
@@ -161,14 +163,5 @@
         android:layout_toRightOf="@+id/loTemp"
         android:text="@string/tempUnits" />
 
-    <TextView
-        android:id="@+id/descriptionStringTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="descriptionString"
-        android:textSize="20dp"
-        android:layout_above="@+id/humidityTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>
