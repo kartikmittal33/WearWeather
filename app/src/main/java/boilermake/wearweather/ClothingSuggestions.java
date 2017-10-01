@@ -35,6 +35,7 @@ public class ClothingSuggestions extends AppCompatActivity {
     static ImageView shirtImgView;
     static ImageView pantImgView;
     static ImageView shoeImgView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,105 +143,87 @@ public class ClothingSuggestions extends AppCompatActivity {
                 }
 
 
-                int count2=0;
-                int count3=0;
-                int count4=0;
-                int count5=0;
-                int count6=0;
-                int count7=0;
-                int count8=0;
-                int count9=0;
-                int count10=0;
-                for(int j=0; j<descriptionList.size(); j++){
-                    if(descriptionList.get(j).equals("clear sky")){
+                int count2 = 0;
+                int count3 = 0;
+                int count4 = 0;
+                int count5 = 0;
+                int count6 = 0;
+                int count7 = 0;
+                int count8 = 0;
+                int count9 = 0;
+                int count10 = 0;
+                for (int j = 0; j < descriptionList.size(); j++) {
+                    if (descriptionList.get(j).equals("clear sky")) {
                         count2++;
-                    }
-                    else if(descriptionList.get(j).equals("few clouds")){
+                    } else if (descriptionList.get(j).equals("few clouds")) {
                         count3++;
-                    }
-                    else if(descriptionList.get(j).equals("scattered clouds")){
+                    } else if (descriptionList.get(j).equals("scattered clouds")) {
                         count4++;
-                    }
-                    else if(descriptionList.get(j).equals("broken clouds")){
+                    } else if (descriptionList.get(j).equals("broken clouds")) {
                         count5++;
-                    }
-                    else if(descriptionList.get(j).equals("shower rain")){
+                    } else if (descriptionList.get(j).equals("shower rain")) {
                         count6++;
-                    }
-                    else if(descriptionList.get(j).equals("rain")){
+                    } else if (descriptionList.get(j).equals("rain")) {
                         count7++;
-                    }
-                    else if(descriptionList.get(j).equals("thunderstorm")){
+                    } else if (descriptionList.get(j).equals("thunderstorm")) {
                         count8++;
-                    }
-                    else if(descriptionList.get(j).equals("snow")){
+                    } else if (descriptionList.get(j).equals("snow")) {
                         count9++;
-                    }
-                    else if(descriptionList.get(j).equals("mist")){
+                    } else if (descriptionList.get(j).equals("mist")) {
                         count10++;
                     }
                 }
 
-                if(count2>=5){
+                if (count2 >= 5) {
                     Descript1.setText("Wear a cotton shirt and jeans. The day is nice. You should be good to go.");
                     coatImgView.setImageAlpha(0);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.trainers);
 
-                }
-                else if(count3>=3 || count4>=3){
+                } else if (count3 >= 3 || count4 >= 3) {
                     Descript1.setText("The weather is cloudy. You may want to wear a jacket.");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.pants);
                     shoeImgView.setImageResource(R.drawable.greendressshoes);
-                }
-                else if(count5>=3){
+                } else if (count5 >= 3) {
                     Descript1.setText("It is most likely going to rain. Wear a jacket and take your umbrella");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.trainers);
-                }
-                else if(count6>=2){
+                } else if (count6 >= 2) {
                     Descript1.setText("It is going to rain slightly. Wear a jacket and take your umbrella");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.trainers);
-                }
-                else if(count7>=2){
+                } else if (count7 >= 2) {
                     Descript1.setText("It is going to rain. Wear your jacket, boots and take your umbrella");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
-                }
-                else if(count8>=2){
+                } else if (count8 >= 2) {
                     Descript1.setText("There is a thunderstorm. Wear your jacket, boots and take your umbrella. Try to stay indoors");
                     coatImgView.setImageResource(R.drawable.browncoat);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
-                }
-                else if(count9>=2){
+                } else if (count9 >= 2) {
                     Descript1.setText("It will snow today. Wear your jacket, coat, boots and take your umbrella in case. Try to stay indoors");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.bluebuttondown);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
-                }
-                else if(count10>=2){
+                } else if (count10 >= 2) {
                     Descript1.setText("There is mist today. Be careful while you drive. Make sure you wear a jacket for warmth");
                     coatImgView.setImageResource(R.drawable.orangejacket);
                     shirtImgView.setImageResource(R.drawable.purpletee);
                     pantImgView.setImageResource(R.drawable.jeans);
                     shoeImgView.setImageResource(R.drawable.yellowgreyboot);
                 }
-
-
-
 
 
             } catch (Exception e) {
