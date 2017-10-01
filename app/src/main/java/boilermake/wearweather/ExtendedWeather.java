@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class ExtendedWeather extends AppCompatActivity {
 
-    String apiTextF, apiTextC;
+    String apiTextF, apiTextC,apiText;
     String result;
 
 
@@ -156,6 +156,16 @@ public class ExtendedWeather extends AppCompatActivity {
                 ArrayList<String> temperatureF = new ArrayList<String>();
                 ArrayList<String> temperatureC = new ArrayList<String>();
                 ArrayList<String> time = new ArrayList<String >();
+                ArrayList<String> descriptionList = new ArrayList<String>();
+                ArrayList<ImageView> imgList = new ArrayList<ImageView>();
+                imgList.add(img1);
+                imgList.add(img2);
+                imgList.add(img3);
+                imgList.add(img4);
+                imgList.add(img5);
+                imgList.add(img6);
+                imgList.add(img7);
+                imgList.add(img8);
                 int count = 3;
                 int i = 0;
 
@@ -171,6 +181,12 @@ public class ExtendedWeather extends AppCompatActivity {
                     apiTextC = Integer.toString(tempC);
                     temperatureF.add(apiTextF);
                     temperatureC.add(apiTextC);
+                    JSONArray windList = x.getJSONArray("weather");
+                    JSONObject y = windList.getJSONObject(0);
+                    String description = y.getString("description");
+                    apiText = description;
+                    descriptionList.add(apiText);
+
 
 
                     count += 3;
@@ -211,7 +227,33 @@ public class ExtendedWeather extends AppCompatActivity {
 
 
 
+                for(int j=0; j<descriptionList.size(); j++){
+                    if(descriptionList.get(j).equals("clear sky")){
+                        imgList.get(j).setImageResource(R.drawable.clearsky);
+                    }
+                    if(descriptionList.get(j).equals("few clouds")){
+                        imgList.get(j).setImageResource(R.drawable.fewclouds);
+                    }
+                    if(descriptionList.get(j).equals("scattered clouds") || descriptionList.get(j).equals("broken clouds")){
+                        imgList.get(j).setImageResource(R.drawable.scatteredclouds);
+                    }
 
+                    if(descriptionList.get(j).equals("shower rain")){
+                        imgList.get(j).setImageResource(R.drawable.showerrain);
+                    }
+                    if(descriptionList.get(j).equals("rain")){
+                        imgList.get(j).setImageResource(R.drawable.rain);
+                    }
+                    if(descriptionList.get(j).equals("thunderstorm")){
+                        imgList.get(j).setImageResource(R.drawable.thunderstorm);
+                    }
+                    if(descriptionList.get(j).equals("snow")){
+                        imgList.get(j).setImageResource(R.drawable.snow);
+                    }
+                    if(descriptionList.get(j).equals("mist") || descriptionList.get(j).equals("haze")){
+                        imgList.get(j).setImageResource(R.drawable.mist);
+                    }
+                }
 
             } catch (Exception e) {
                 Log.e("", e.toString());
