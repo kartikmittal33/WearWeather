@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         //  Log.d("myTag", "I am here");
         boolean checked = ((RadioButton) view).isChecked();
         Log.d("tempUnit", String.valueOf(view.getId()));
-        nextTempUnit = "°F";
+//        nextTempUnit = "°F";
         //recalculateTemps(currTempUnit, nextTempUnit);
         // Check which radio button was clicked
         switch(view.getId()) {

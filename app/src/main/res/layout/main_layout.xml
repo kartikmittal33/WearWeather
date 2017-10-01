@@ -61,6 +61,7 @@
             android:layout_toEndOf="@id/loTemp"
             android:text="°F"
             android:textSize="17dp"/>
+
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,6 +131,7 @@
                 android:id="@+id/descriptionStringTextView"
                 android:layout_marginTop="10dp"
                 android:text="descriptionString"
+                android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_centerHorizontal="true"/>
             <TextView
