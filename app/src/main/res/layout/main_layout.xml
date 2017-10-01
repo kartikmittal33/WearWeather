@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#29B6f6"
+
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,6 +18,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/currentDay"
             android:layout_marginTop="20dp"
+            android:textColor="#ffffff"
             android:text="@string/dayOfWeek"
             android:textSize="30sp"/>
         <ImageView
@@ -30,6 +34,7 @@
             android:id="@+id/hiTemp"
             android:text="70"
             android:textSize="35dp"
+            android:textColor="#ffffff"
             android:layout_toRightOf="@id/weather"
             android:layout_toEndOf="@id/weather"
             android:layout_alignTop="@id/weather"
@@ -41,6 +46,7 @@
             android:layout_alignTop="@id/hiTemp"
             android:layout_toRightOf="@id/hiTemp"
             android:layout_toEndOf="@id/hiTemp"
+            android:textColor="#ffffff"
             android:text="°F"
             android:textSize="20dp"/>
         <TextView
@@ -50,6 +56,7 @@
             android:text="50"
             android:textSize="25dp"
             android:layout_below="@id/hiTemp"
+            android:textColor="#ffffff"
             android:layout_toRightOf="@id/weather"
             android:layout_toEndOf="@id/weather"/>
         <TextView
@@ -58,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/loTemp"
             android:layout_toRightOf="@id/loTemp"
+            android:textColor="#ffffff"
             android:layout_toEndOf="@id/loTemp"
             android:text="°F"
             android:textSize="17dp"/>
@@ -69,6 +77,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/currentDay"
             android:layout_marginLeft="18dp"
+
             android:layout_marginStart="18dp">
 
 
@@ -76,6 +85,7 @@
                 android:id="@+id/radio_farenheit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:onClick="onRadioButtonClicked"
                 android:text="°F" />
 
@@ -84,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
+                android:textColor="#ffffff"
                 android:text="°C" />
 
 
@@ -100,6 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
             android:text="@string/feelsLikeTemp"
             android:textSize="60dp" />
 
@@ -109,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/realTempTextView"
             android:layout_toRightOf="@id/realTempTextView"
+            android:textColor="#ffffff"
             android:text="@string/tempUnits"
             android:textSize="25sp" />
 
@@ -134,7 +147,7 @@
 
                 android:layout_marginTop="10dp"
                 android:text="descriptionString"
-
+                android:textColor="#ffffff"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_centerHorizontal="true"/>
@@ -146,6 +159,7 @@
                 android:layout_below="@id/descriptionStringTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
+                android:textColor="#ffffff"
                 android:text="placeName"
                 android:textSize="30dp" />
         </LinearLayout>
@@ -155,6 +169,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/bottomTopLiner"
+            android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
@@ -165,6 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="Wind"
                 android:textSize="25dp" />
 
@@ -174,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="Humidity"
                 android:textSize="25dp" />
 
@@ -193,6 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="WV"
                 android:textSize="25dp" />
 
@@ -202,6 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="HV"
                 android:textSize="25dp" />
 
@@ -218,6 +237,8 @@
                 android:id="@+id/extendClothing"
                 android:layout_width="187dp"
                 android:layout_height="80dp"
+                android:textColor="#29B6f6"
+                android:background="@drawable/mybutton"
 
                 android:onClick="extendClothing"
                 android:text="@string/clothingRecommended"
@@ -230,9 +251,11 @@
                 android:layout_width="187dp"
                 android:layout_height="80dp"
                 android:onClick="extendWeather"
-
+                android:background="@drawable/mybutton"
+                android:textColor="#29B6f6"
                 android:text="Weather Forecast"
                 android:layout_alignParentBottom="true"
+                android:layout_marginLeft="17dp"
                 android:layout_toRightOf="@+id/extendClothing"
                 android:layout_toEndOf="@+id/extendClothing" />
 
