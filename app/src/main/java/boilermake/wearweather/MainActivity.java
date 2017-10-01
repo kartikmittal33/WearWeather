@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         //  Log.d("myTag", "I am here");
         boolean checked = ((RadioButton) view).isChecked();
         Log.d("tempUnit", String.valueOf(view.getId()));
-        nextTempUnit = "°F";
+       // nextTempUnit = "°F";
         //recalculateTemps(currTempUnit, nextTempUnit);
         // Check which radio button was clicked
         switch(view.getId()) {
@@ -177,21 +177,22 @@ public class MainActivity extends AppCompatActivity {
                 if (checked){
 
                     nextTempUnit = "°F";
-                    changeTemps(currTempUnit, nextTempUnit);
-                    currTempUnit = nextTempUnit;
-                   // Log.d("tempUnit", tempUnit);
-                    // Pirates are the best
-                    break;}
+
+
+                    break;
+                }
             case R.id.radio_celsius:
                 if (checked){
 
                     nextTempUnit = "°C";
-                    changeTemps(currTempUnit, nextTempUnit);
-                    currTempUnit = nextTempUnit;
-                    //Log.d("tempUnit", tempUnit);
-                    // Ninjas rule
+
+
                     break;}
         }
+
+        changeTemps(currTempUnit, nextTempUnit);
+        currTempUnit = nextTempUnit;
+
     }
 
 
