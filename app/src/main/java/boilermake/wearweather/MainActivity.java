@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_lay);
+        setContentView(R.layout.main_layout);
 
         // /img.setImageResource(R.drawable.sun);
         hiTempTextView = (TextView) findViewById(R.id.hiTemp);
