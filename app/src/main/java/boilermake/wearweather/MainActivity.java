@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.content.Intent;
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
     String apiText;
     String result;
+    String windUnit = " m/s";
+    String humidUnits = "%";
+    static protected String currTempUnit = "°F";
+    static protected String nextTempUnit = "";
+    static protected int tempMinF, tempMaxF, tempF, tempMinC, tempMaxC, tempC;
 
     static TextView currentDay;
     static TextView hiTempTextView;
@@ -53,7 +59,13 @@ public class MainActivity extends AppCompatActivity {
     static ImageView img;
     static TextView realTempTextView;
     static TextView descriptionStringTextView;
+
     static TextView placeNameTextView;
+
+
+    static TextView hiTempTextUnit;
+    static TextView lowTempTextUnit;
+    static TextView realTempTextUnit;
 
 
     @Override
@@ -71,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
         realTempTextView = (TextView)findViewById(R.id.realTempTextView);
         descriptionStringTextView = (TextView) findViewById(R.id.descriptionStringTextView);
         placeNameTextView = (TextView)findViewById(R.id.placeNameTextView);
+
+        hiTempTextUnit = (TextView) findViewById(R.id.unitHiTemp);
+        lowTempTextUnit = (TextView) findViewById(R.id.unitLowTemp);
+        realTempTextUnit = (TextView)findViewById(R.id.unitFeelsTemp);
+        RadioButton radiobutton1 = (RadioButton)findViewById(R.id.radio_farenheit);
+        radiobutton1.setChecked(true);
 
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -145,6 +163,37 @@ public class MainActivity extends AppCompatActivity {
         ((Button) v).setText("clicked");
     }
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        //  Log.d("myTag", "I am here");
+        boolean checked = ((RadioButton) view).isChecked();
+        Log.d("tempUnit", String.valueOf(view.getId()));
+        nextTempUnit = "°F";
+        //recalculateTemps(currTempUnit, nextTempUnit);
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_farenheit:
+
+                if (checked){
+
+                    nextTempUnit = "°F";
+                    changeTemps(currTempUnit, nextTempUnit);
+                    currTempUnit = nextTempUnit;
+                   // Log.d("tempUnit", tempUnit);
+                    // Pirates are the best
+                    break;}
+            case R.id.radio_celsius:
+                if (checked){
+
+                    nextTempUnit = "°C";
+                    changeTemps(currTempUnit, nextTempUnit);
+                    currTempUnit = nextTempUnit;
+                    //Log.d("tempUnit", tempUnit);
+                    // Ninjas rule
+                    break;}
+        }
+    }
+
 
     public class WeatherAPI extends AsyncTask<String, Void, String> {
 
@@ -195,11 +244,22 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject weatherDatas = new JSONObject(jsonObject.getString("main"));
 
                 double tempIntMax = Double.parseDouble(weatherDatas.getString("temp_max"));
-                int tempMax = (int) ((tempIntMax - 273) * 1.8 + 32);
+
                 double tempIntMin = Double.parseDouble(weatherDatas.getString("temp_min"));
-                int tempMin = (int) ((tempIntMin - 273) * 1.8 + 32);
+
                 double tempInt = Double.parseDouble(weatherDatas.getString("temp"));
-                int temp = (int) ((tempInt - 273) * 1.8 + 32);
+
+
+                tempMinC = (int) (tempIntMin - 273);
+                tempMaxC = (int) (tempIntMax - 273);
+                tempC = (int) (tempInt - 273);
+
+                tempMinF = (int) (tempMinC * 1.8 + 32);
+                tempMaxF = (int) (tempMaxC * 1.8 + 32);
+                tempF = (int) (tempC * 1.8 + 32);
+
+
+
                 JSONObject wind = new JSONObject(jsonObject.getString("wind"));
                 double windValue = Double.parseDouble((wind.getString("speed")));
 
@@ -210,13 +270,17 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject y = weatherData.getJSONObject(0);
                 String description = y.getString("description");
                 if (description.equals("clear sky")) {
+
                     img.setImageResource(R.drawable.clearsky);
+
                 }
                 else if (description.equals("few clouds")) {
                     img.setImageResource(R.drawable.fewclouds);
                 }
+
                 else if (description.equals("scattered clouds") || description.equals("broken clouds") ) {
                     img.setImageResource(R.drawable.scatteredclouds);
+
                 }
                 else if (description.equals("shower rain")) {
                     img.setImageResource(R.drawable.showerrain);
@@ -238,14 +302,15 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String placeName = jsonObject.getString("name");
-                realTempTextView.setText(String.valueOf(temp));
+                realTempTextView.setText(String.valueOf(tempF));
                 descriptionStringTextView.setText(String.valueOf(description).toUpperCase());
 
-                hiTempTextView.setText(String.valueOf(tempMax));
-                lowTempTextView.setText(String.valueOf(tempMin));
                 windTextView.setText(String.valueOf(windValue));
                 humidityTextView.setText(String.valueOf(humidityValue) + "%");
                 placeNameTextView.setText(placeName);
+
+                hiTempTextView.setText(String.valueOf(tempMaxF));
+                lowTempTextView.setText(String.valueOf(tempMinF));
 
 
             } catch (Exception e) {
@@ -254,6 +319,36 @@ public class MainActivity extends AppCompatActivity {
 
             super.onPostExecute(result);
         }
+    }
+
+    public void changeTemps(String currTempUnit, String newTempUnit){
+        Log.d("curr", currTempUnit);
+        Log.d("next",newTempUnit);
+
+
+        if (currTempUnit.equals("°F") && nextTempUnit.equals("°C")){
+            realTempTextView.setText(String.valueOf(tempC));
+            hiTempTextView.setText(String.valueOf(tempMaxC));
+            lowTempTextView.setText(String.valueOf(tempMinC));
+
+            realTempTextUnit.setText(nextTempUnit);
+            hiTempTextUnit.setText(nextTempUnit);
+            lowTempTextUnit.setText(nextTempUnit);
+
+        }
+        if (currTempUnit.equals("°C") && nextTempUnit.equals("°F"))
+        {
+            realTempTextView.setText(String.valueOf(tempF));
+            hiTempTextView.setText(String.valueOf(tempMaxF));
+            lowTempTextView.setText(String.valueOf(tempMinF));
+
+            realTempTextUnit.setText(nextTempUnit);
+            hiTempTextUnit.setText(nextTempUnit);
+            lowTempTextUnit.setText(nextTempUnit);
+
+
+        }
+
     }
 
     public void extendSettings(View view) {

@@ -28,9 +28,8 @@ import java.util.ArrayList;
 
 public class ExtendedWeather extends AppCompatActivity {
 
-    String apiText;
+    String apiTextF, apiTextC;
     String result;
-    String tempUnit = "°F";
 
 
     static TextView firstTemp;
@@ -158,7 +157,8 @@ public class ExtendedWeather extends AppCompatActivity {
 
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray list = jsonObject.getJSONArray("list");
-                ArrayList<String> temperature = new ArrayList<String>();
+                ArrayList<String> temperatureF = new ArrayList<String>();
+                ArrayList<String> temperatureC = new ArrayList<String>();
                 ArrayList<String> time = new ArrayList<String >();
                 int count = 3;
                 int i = 0;
@@ -169,9 +169,13 @@ public class ExtendedWeather extends AppCompatActivity {
                     String dt_txt = x.getString("dt_txt");
                     time.add(dt_txt);
                     JSONObject main = x.getJSONObject("main");
-                    double temp = Math.round((main.getDouble("temp")-273.15)*1.8 +32);
-                    apiText = Double.toString(temp);
-                    temperature.add(apiText);
+                    int tempF = (int)Math.round((main.getDouble("temp")-273.15)*1.8 +32);
+                    int tempC =(int)Math.round((main.getDouble("temp")-273.15));
+                    apiTextF = Integer.toString(tempF);
+                    apiTextC = Integer.toString(tempC);
+                    temperatureF.add(apiTextF);
+                    temperatureC.add(apiTextC);
+
 
                     count += 3;
                     i++;
@@ -179,15 +183,27 @@ public class ExtendedWeather extends AppCompatActivity {
 
                 }
 
-                firstTemp.setText(temperature.get(0) + tempUnit);
-                secondTemp.setText(temperature.get(1)+ tempUnit);
-                thirdTemp.setText(temperature.get(2)+ tempUnit);
-                fourthTemp.setText(temperature.get(3)+ tempUnit);
-                fifthTemp.setText(temperature.get(4)+ tempUnit);
-                sixthTemp.setText(temperature.get(5)+ tempUnit);
-                seventhTemp.setText(temperature.get(6)+ tempUnit);
-                eightTemp.setText(temperature.get(7)+ tempUnit);
+                if (MainActivity.currTempUnit.equals("°F")) {
+                    firstTemp.setText(temperatureF.get(0) + MainActivity.currTempUnit);
+                    secondTemp.setText(temperatureF.get(1) + MainActivity.currTempUnit);
+                    thirdTemp.setText(temperatureF.get(2) + MainActivity.currTempUnit);
+                    fourthTemp.setText(temperatureF.get(3) + MainActivity.currTempUnit);
+                    fifthTemp.setText(temperatureF.get(4) + MainActivity.currTempUnit);
+                    sixthTemp.setText(temperatureF.get(5) + MainActivity.currTempUnit);
+                    seventhTemp.setText(temperatureF.get(6) + MainActivity.currTempUnit);
+                    eightTemp.setText(temperatureF.get(7) + MainActivity.currTempUnit);
+                }
 
+                if (MainActivity.currTempUnit.equals("°C")) {
+                    firstTemp.setText(temperatureC.get(0) + MainActivity.currTempUnit);
+                    secondTemp.setText(temperatureC.get(1) + MainActivity.currTempUnit);
+                    thirdTemp.setText(temperatureC.get(2) + MainActivity.currTempUnit);
+                    fourthTemp.setText(temperatureC.get(3) + MainActivity.currTempUnit);
+                    fifthTemp.setText(temperatureC.get(4) + MainActivity.currTempUnit);
+                    sixthTemp.setText(temperatureC.get(5) + MainActivity.currTempUnit);
+                    seventhTemp.setText(temperatureC.get(6) + MainActivity.currTempUnit);
+                    eightTemp.setText(temperatureC.get(7) + MainActivity.currTempUnit);
+                }
                 time1.setText(time.get(0));
                 time2.setText(time.get(1));
                 time3.setText(time.get(2));
